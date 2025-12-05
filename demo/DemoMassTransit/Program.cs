@@ -29,6 +29,8 @@ builder.Services.AddScoped<ConsumerInvoker>();
 
 var app = builder.Build();
 
+ConsumerDiscoverer.DiscoverConsumers(app.Services);
+
 app.MapGet("/invoke", async (ConsumerInvoker invoker) =>
 {
     await invoker.Invoke();
