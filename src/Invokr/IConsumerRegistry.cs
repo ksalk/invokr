@@ -8,4 +8,5 @@ public interface IConsumerRegistry
     IReadOnlyList<IConsumerDescriptor> Consumers { get; }
     IConsumerDescriptor? GetByName(string name);
     IConsumerDescriptor? GetByMessageType(Type messageType);
+    void Register(IConsumerDescriptor descriptor);
 }

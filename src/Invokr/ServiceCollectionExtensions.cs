@@ -13,6 +13,7 @@ public static class InvokrServiceExtensions
         // Register core services
         // Register discovery providers
         // Register invoker providers
+        services.AddSingleton<IConsumerRegistry, ConsumerRegistry>();
 
         return services;
     }
