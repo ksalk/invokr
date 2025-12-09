@@ -6,12 +6,12 @@ namespace Invokr;
 public interface IConsumerInvoker
 {
     Task<ConsumerInvocationResult> InvokeAsync(
-        IConsumerDescriptor consumer,
+        IConsumerDescriptor consumerDescriptor,
         object message,
         CancellationToken ct = default);
 
     Task<ConsumerInvocationResult> InvokeAsync(
-        IConsumerDescriptor consumer,
+        IConsumerDescriptor consumerDescriptor,
         string jsonPayload,
         CancellationToken ct = default);
 }

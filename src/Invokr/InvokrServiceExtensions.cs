@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Invokr;
 
-// Registration extension
 public static class InvokrServiceExtensions
 {
     public static IServiceCollection AddInvokr(
@@ -29,11 +28,12 @@ public static class InvokrApplicationExtensions
 {
     public static IApplicationBuilder UseInvokr(
         this IApplicationBuilder app,
-        string pathPrefix = "/invokr")
+        string uiPathPrefix = "/invokr")
     {
         // Map API endpoints for UI
         // Serve embedded static files (React/Vue/Blazor UI)
 
+        // TODO: for now just adding simple endpoint
         return app;
     }
 }
