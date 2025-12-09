@@ -10,10 +10,16 @@ public static class InvokrServiceExtensions
         this IServiceCollection services,
         Action<InvokrOptions>? configure = null)
     {
-        // Register core services
-        // Register discovery providers
-        // Register invoker providers
+        var options = new InvokrOptions();
+        configure?.Invoke(options);
+
+        services.AddSingleton(options);
         services.AddSingleton<IConsumerRegistry, ConsumerRegistry>();
+
+        foreach (var registration in options.DiscoveryProviderRegistrations)
+        {
+            registration(services);
+        }
 
         return services;
     }
